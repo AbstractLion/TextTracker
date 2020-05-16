@@ -29,6 +29,7 @@ flutter:
 
   assets:
   - assets/images/logo.png
+  - assets/images/trophy.png
 
   fonts:
     - family: Bitter

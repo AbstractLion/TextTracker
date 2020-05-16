@@ -35,8 +35,7 @@ class RankingsScreen extends StatelessWidget {
             color: topRankColors[0],
             borderRadius: BorderRadius.all(Radius.circular(15)),
             image: DecorationImage(
-              image: NetworkImage(
-                  "https://retohercules.com/images/trophy-clipart-transparent-12.png"),
+              image: AssetImage('assets/images/trophy.png'),
               alignment: Alignment(1, 0),
             ),
           ),

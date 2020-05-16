@@ -15,6 +15,7 @@ dependencies:
   fancy_bottom_navigation: ^0.3.2
   floating_search_bar: ^0.3.0
   font_awesome_flutter: ^8.5.0
+  image_picker: ^0.6.6+1
   intl: ^0.16.1
   # dummy package to test https://github.com/NearHuscarl/flutter_login/issues/35
   provider: ^4.0.1

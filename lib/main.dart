@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:login_example/screens/add_book.dart';
 import 'package:login_example/screens/profile.dart';
 
 import 'login_screen.dart';
@@ -57,6 +58,7 @@ class MyApp extends StatelessWidget {
         LoginScreen.routeName: (context) => LoginScreen(),
         MainScreen.routeName: (context) => MainScreen(),
         ProfileScreen.routeName: (context) => ProfileScreen(),
+        AddBookScreen.routeName: (context) => AddBookScreen(),
       },
     );
   }

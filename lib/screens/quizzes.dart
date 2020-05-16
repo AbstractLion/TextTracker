@@ -3,8 +3,9 @@ import 'package:floating_search_bar/floating_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:getflutter/getflutter.dart';
-import 'package:login_example/models/book.dart';
-import 'package:login_example/models/books.dart';
+
+import '../models/book.dart';
+import '../models/books.dart';
 
 class QuizzesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -34,7 +35,9 @@ class QuizzesScreen extends StatelessWidget {
           padding: EdgeInsets.only(bottom: 5, left: 10),
           iconSize: 30,
           color: Colors.black,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushNamed('/add_book');
+          },
         ),
       ),
       onChanged: (String value) {},

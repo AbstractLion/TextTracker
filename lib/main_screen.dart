@@ -46,7 +46,6 @@ class _MainScreenState extends State<MainScreen>
           });
         }),
         body: _getPage(_currentPage),
-        extendBodyBehindAppBar: true,
       ),
     );
   }
@@ -69,12 +68,13 @@ class TextTrackerAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(
-        'TextTracker',
-        style: TextStyle(color: Colors.black),
+      title: Center(
+        child: Text(
+          'TextTracker',
+          style: TextStyle(color: Colors.black),
+        ),
       ),
       backgroundColor: Colors.white,
-      // #F4F1EA
     );
   }
 

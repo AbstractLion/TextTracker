@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:flutter_login/theme.dart';
-import 'package:flutter_login/widgets.dart';
+import 'package:wave/config.dart';
+import 'package:wave/wave.dart';
 import 'transition_route_observer.dart';
-import 'widgets/fade_in.dart';
-import 'constants.dart';
-import 'widgets/animated_numeric_text.dart';
+import 'dart:math' as math;
 
 class DashboardScreen extends StatefulWidget {
   static const routeName = '/dashboard';
@@ -70,14 +67,32 @@ class _DashboardScreenState extends State<DashboardScreen>
       child: SafeArea(
         child: Scaffold(
           appBar: AppBar(
-            title: Container(),
+            title: Transform.rotate(
+              angle: -math.pi,
+              child: WaveWidget(
+                config: CustomConfig(
+                  gradients: [
+                    [Colors.red, Color(0xEEF44336)],
+                    [Colors.red[800], Color(0x77E57373)],
+                    [Colors.orange, Color(0x66FF9800)],
+                    [Colors.yellow, Color(0x55FFEB3B)]
+                  ],
+                  heightPercentages: [0.25, 0.26, 0.28, 0.31],
+                  durations: [35000, 19440, 10800, 6000],
+                  blur: MaskFilter.blur(BlurStyle.solid, 10),
+                  gradientBegin: Alignment.bottomLeft,
+                  gradientEnd: Alignment.topRight,
+                ),
+                waveAmplitude: 0,
+                backgroundColor: Colors.transparent,
+                size: Size(double.infinity, 200),
+              ),
+            ),
           ),
           body: Container(
-            width: double.infinity,
-            height: double.infinity,
-            color: theme.primaryColor.withOpacity(.1),
-            child: Container()
-          ),
+              width: double.infinity,
+              height: double.infinity,
+              child: Container()),
         ),
       ),
     );

@@ -38,7 +38,7 @@ class TextTrackerAppBar extends StatelessWidget implements PreferredSizeWidget {
             Icons.more_vert,
             color: Colors.black,
           ),
-          onSelected: _handleMenuClick,
+          onSelected: (String value) => _handleMenuClick(context, value),
           itemBuilder: (BuildContext context) {
             return ['View Profile', 'Settings', 'Logout'].map((String choice) {
               return PopupMenuItem(
@@ -52,10 +52,10 @@ class TextTrackerAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  void _handleMenuClick(String value) {
+  void _handleMenuClick(BuildContext context, String value) {
     switch (value) {
       case 'View Profile':
-        setPage(4);
+        Navigator.of(context).pushNamed('/profile');
         break;
       case 'Settings':
         break;

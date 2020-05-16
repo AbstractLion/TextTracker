@@ -9,7 +9,7 @@ import 'widgets/text_tracker_app_bar.dart';
 import 'widgets/text_tracker_bottom_navigation_bar.dart';
 
 class MainScreen extends StatefulWidget {
-  static const routeName = '/Main';
+  static const routeName = '/main';
 
   @override
   _MainScreenState createState() => _MainScreenState();

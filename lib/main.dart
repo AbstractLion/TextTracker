@@ -20,29 +20,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Login Demo',
+      title: 'TextTracker',
       theme: ThemeData(
         // brightness: Brightness.dark,
-        primarySwatch: Colors.deepPurple,
-        accentColor: Colors.orange,
-        cursorColor: Colors.orange,
+        primaryColor: Colors.black,
+        accentColor: Colors.black,
+        cursorColor: Colors.black,
         // fontFamily: 'SourceSansPro',
         textTheme: TextTheme(
           display2: TextStyle(
             fontFamily: 'OpenSans',
             fontSize: 45.0,
             // fontWeight: FontWeight.w400,
-            color: Colors.orange,
+            color: Colors.black,
           ),
           button: TextStyle(
             // OpenSans is similar to NotoSans but the uppercases look a bit better IMO
             fontFamily: 'OpenSans',
-          ),
-          caption: TextStyle(
-            fontFamily: 'NotoSans',
-            fontSize: 12.0,
-            fontWeight: FontWeight.normal,
-            color: Colors.deepPurple[300],
+            color: Colors.black,
           ),
           display4: TextStyle(fontFamily: 'Quicksand'),
           display3: TextStyle(fontFamily: 'Quicksand'),

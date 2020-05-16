@@ -73,7 +73,7 @@ class TextTrackerAppBar extends StatelessWidget implements PreferredSizeWidget {
         'TextTracker',
         style: TextStyle(color: Colors.black),
       ),
-      backgroundColor: Color.fromRGBO(244, 241, 234, 1),
+      backgroundColor: Colors.white,
       // #F4F1EA
     );
   }
@@ -90,7 +90,7 @@ class TextTrackerBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FancyBottomNavigation(
-      barBackgroundColor: Color.fromRGBO(244, 241, 234, 1),
+      barBackgroundColor: Colors.white,
       activeIconColor: Colors.black,
       inactiveIconColor: Colors.black,
       circleColor: Colors.white,

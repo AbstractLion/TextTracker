@@ -23,7 +23,43 @@ class RankingsScreen extends StatelessWidget {
         ? topRankColors[index]
         : Color.fromRGBO(247, 247, 247, 1);
 
-    return Container(
+    Widget listHeader = Container(
+      padding: const EdgeInsets.fromLTRB(0, 2, 0, 2),
+      child: Container(
+        height: 150,
+        decoration: BoxDecoration(
+            color: itemColor,
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+            image: DecorationImage(
+              image: NetworkImage(
+                  "https://retohercules.com/images/trophy-clipart-transparent-12.png"
+              ),
+              alignment: Alignment(1,0)
+            )),
+        padding: const EdgeInsets.fromLTRB(20, 0, 25, 0),
+        child: Row(
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Spacer(flex: 4),
+                Text("Win a \$50 Textbook!",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+                Spacer(),
+                Text("Score high in this week's contest!"),
+                Text("Contest ends in 10 hours",
+                    style: TextStyle(fontSize: 10, color: Colors.amber[800])),
+                Spacer(flex: 4),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+
+    Widget itemContents = Container(
       padding: const EdgeInsets.fromLTRB(0, 2, 0, 2),
       child: Container(
         height: 75,
@@ -65,5 +101,16 @@ class RankingsScreen extends StatelessWidget {
         ),
       ),
     );
+
+    if (index == 0) {
+      return Column(
+        children: [
+          listHeader,
+          itemContents,
+        ],
+      );
+    } else {
+      return itemContents;
+    }
   }
 }

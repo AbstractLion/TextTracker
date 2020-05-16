@@ -8,6 +8,10 @@ class Users {
       handle: 'avanrocks',
       name: 'Avaneesh Kulkarni',
       reputation: 32344,
+      tags: [
+        "On Chapter 4 of Competitive Programmer's Handbook",
+        "On Chapter 2 of Programming Lua"
+      ],
     ),
     User(
       avatarUrl:
@@ -15,6 +19,9 @@ class Users {
       handle: 'sir.melitonk',
       name: 'Kevin Wang',
       reputation: 3442,
+      tags: [
+        "On Chapter 4 of Competitive Programmer's Handbook"
+      ],
     ),
     User(
       avatarUrl:
@@ -22,6 +29,9 @@ class Users {
       handle: 'abstractultra',
       name: 'Dragon He',
       reputation: 3421,
+      tags: [
+        "On Chapter 4 of Competitive Programmer's Handbook"
+      ],
     ),
     User(
       avatarUrl:
@@ -29,6 +39,9 @@ class Users {
       handle: 'leonzalion',
       name: 'Leon Si',
       reputation: 2145,
+      tags: [
+        "On Chapter 4 of Competitive Programmer's Handbook"
+      ],
     ),
   ];
 

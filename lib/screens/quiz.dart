@@ -20,7 +20,7 @@ class QuizScreen extends StatelessWidget {
       },
       trailing: Badge(
         badgeContent: Icon(Icons.add),
-        child: Icon(FontAwesomeIcons.clipboard),
+        child: Icon(FontAwesomeIcons.book),
       ),
       onChanged: (String value) {},
       onTap: () {},
@@ -39,6 +39,8 @@ class QuizScreen extends StatelessWidget {
           Image.network(
             'https://cses.fi/book/gtcp.jpg',
             height: 100,
+            width: 70,
+            fit: BoxFit.cover,
           ),
           Flexible(
             child: Container(

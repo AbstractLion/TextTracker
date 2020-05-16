@@ -3,17 +3,19 @@ import 'package:floating_search_bar/floating_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:getflutter/getflutter.dart';
+import 'package:login_example/models/book.dart';
+import 'package:login_example/models/books.dart';
 
 class QuizzesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingSearchBar.builder(
       pinned: true,
       padding: EdgeInsets.only(top: 10.0),
-      itemCount: 100,
+      itemCount: Books.books.length,
       itemBuilder: (BuildContext context, int index) {
         return Container(
           margin: EdgeInsets.only(top: 10),
-          child: _buildCard(context),
+          child: _buildCard(context, index),
         );
       },
       trailing: Badge(
@@ -43,16 +45,18 @@ class QuizzesScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCard(BuildContext context) {
+  Widget _buildCard(BuildContext context, int index) {
     final theme = Theme.of(context);
-
+    final Book book = Books.getBook(index);
     return GFAccordion(
       margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
       titleChild: Row(
         children: [
           Image.network(
-            'https://cses.fi/book/gtcp.jpg',
+            book.imageUrl,
             height: 100,
+            width: 70,
+            fit: BoxFit.cover,
           ),
           Flexible(
             child: Container(
@@ -62,13 +66,13 @@ class QuizzesScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    "Competitive Programmer's Handbook",
+                    book.title,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    "Antti Laaksonen",
+                    book.author,
                     textAlign: TextAlign.left,
                   ),
                   Container(

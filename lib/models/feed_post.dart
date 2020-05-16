@@ -1,17 +1,19 @@
+import 'book.dart';
+import 'reply.dart';
+import 'user.dart';
+
 class FeedPost {
-  final String userAvatarUrl;
-  final String userName;
-  final String userHandle;
-  final String bookImageUrl;
+  final User user;
+  final Book book;
   final String text;
   final int numViews;
+  final List<Reply> replies;
 
-  const FeedPost({
-    this.userAvatarUrl,
-    this.userName,
-    this.userHandle,
-    this.bookImageUrl,
+  FeedPost({
+    this.user,
+    this.book,
     this.text,
     this.numViews,
+    this.replies,
   });
 }

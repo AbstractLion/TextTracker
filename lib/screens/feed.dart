@@ -29,18 +29,20 @@ class FeedScreen extends StatelessWidget {
           Container(
             child: GFListTile(
               padding: EdgeInsets.all(0),
-              titleText: post.userName,
-              subtitleText: '@' + post.userHandle,
+              titleText: post.user.name,
+              subtitleText: '@' + post.user.handle,
               avatar: GFAvatar(
-                backgroundImage: NetworkImage(post.userAvatarUrl),
+                backgroundImage: NetworkImage(post.user.avatarUrl),
               ),
             ),
           ),
           Row(
             children: [
               Image.network(
-                post.bookImageUrl,
+                post.book.imageUrl,
                 height: 150,
+                width: 100,
+                fit: BoxFit.cover,
               ),
               Flexible(
                 child: Container(

@@ -4,7 +4,7 @@ import 'package:login_example/screens/discover.dart';
 import 'package:login_example/screens/feed.dart';
 import 'package:login_example/screens/quizzes.dart';
 import 'package:login_example/screens/rankings.dart';
-import 'dashboard_screen.dart';
+import 'main_screen.dart';
 import 'login_screen.dart';
 import 'transition_route_observer.dart';
 
@@ -62,11 +62,7 @@ class MyApp extends StatelessWidget {
       navigatorObservers: [TransitionRouteObserver()],
       routes: {
         LoginScreen.routeName: (context) => LoginScreen(),
-        DashboardScreen.routeName: (context) => DashboardScreen(),
-        FeedScreen.routeName: (context) => FeedScreen(),
-        DiscoverScreen.routeName: (context) => DiscoverScreen(),
-        QuizzesScreen.routeName: (context) => QuizzesScreen(),
-        RankingsScreen.routeName: (context) => RankingsScreen(),
+        MainScreen.routeName: (context) => MainScreen(),
       },
     );
   }

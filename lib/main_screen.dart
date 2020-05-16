@@ -1,47 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:login_example/screens/discover.dart';
+import 'package:login_example/screens/feed.dart';
+import 'package:login_example/screens/quizzes.dart';
+import 'package:login_example/screens/rankings.dart';
 import 'package:wave/config.dart';
 import 'package:wave/wave.dart';
 import 'transition_route_observer.dart';
 import 'dart:math' as math;
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 
-class DashboardScreen extends StatefulWidget {
-  static const routeName = '/dashboard';
+class MainScreen extends StatefulWidget {
+  static const routeName = '/Main';
 
   @override
-  _DashboardScreenState createState() => _DashboardScreenState();
+  _MainScreenState createState() => _MainScreenState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen>
+class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin, TransitionRouteAware {
-  Future<bool> _goToLogin(BuildContext context) {
-    return Navigator.of(context)
-        .pushReplacementNamed('/')
-        // we dont want to pop the screen, just replace it completely
-        .then((_) => false);
-  }
+  int _currentPage = 0;
 
   final routeObserver = TransitionRouteObserver<PageRoute>();
-  static const headerAniInterval =
-      const Interval(.1, .3, curve: Curves.easeOut);
-  Animation<double> _headerScaleAnimation;
-  AnimationController _loadingController;
 
   @override
   void initState() {
     super.initState();
-
-    _loadingController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1250),
-    );
-
-    _headerScaleAnimation =
-        Tween<double>(begin: .6, end: 1).animate(CurvedAnimation(
-      parent: _loadingController,
-      curve: headerAniInterval,
-    ));
   }
 
   @override
@@ -51,36 +35,36 @@ class _DashboardScreenState extends State<DashboardScreen>
   }
 
   @override
-  void dispose() {
-    routeObserver.unsubscribe(this);
-    _loadingController.dispose();
-    super.dispose();
-  }
-
-  @override
-  void didPushAfterTransition() => _loadingController.forward();
-
-  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return WillPopScope(
-      onWillPop: () => _goToLogin(context),
-      child: SafeArea(
-        child: Scaffold(
-          appBar: TextTrackerAppBar(),
-          bottomNavigationBar: TextTrackerBottomNavigationBar(),
-          body: Container(
-            width: double.infinity,
-            height: double.infinity,
-            child: Container()),
+    return SafeArea(
+      child: Scaffold(
+        appBar: TextTrackerAppBar(),
+        bottomNavigationBar: TextTrackerBottomNavigationBar(
+          setPage: (position) {
+            setState(() {
+              _currentPage = position;
+            });
+          }
         ),
+        body: _getPage(_currentPage),
       ),
     );
+  }
+
+  _getPage(int page) {
+    switch(page) {
+      case 0: return FeedScreen();
+      case 1: return RankingsScreen();
+      case 2: return QuizzesScreen();
+      case 3: return DiscoverScreen();
+    }
   }
 }
 
 class TextTrackerAppBar extends StatelessWidget implements PreferredSizeWidget {
+
   @override
   Widget build(BuildContext context) {
     return Transform.rotate(
@@ -99,6 +83,7 @@ class TextTrackerAppBar extends StatelessWidget implements PreferredSizeWidget {
           gradientBegin: Alignment.bottomLeft,
           gradientEnd: Alignment.topRight,
         ),
+        waveAmplitude: 0,
         backgroundColor: Colors.transparent,
         size: Size(double.infinity, 125),
       ),
@@ -110,6 +95,10 @@ class TextTrackerAppBar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class TextTrackerBottomNavigationBar extends StatelessWidget {
+  final void Function(int) setPage;
+
+  TextTrackerBottomNavigationBar({this.setPage});
+
   @override
   Widget build(BuildContext context) {
     return FancyBottomNavigation(
@@ -120,7 +109,7 @@ class TextTrackerBottomNavigationBar extends StatelessWidget {
         TabData(iconData: FontAwesomeIcons.compass, title: "Discover"),
       ],
       onTabChangedListener: (position) {
-        
+        setPage(position);
       },
     );
   }

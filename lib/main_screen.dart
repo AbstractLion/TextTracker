@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -7,8 +5,6 @@ import 'package:login_example/screens/discover.dart';
 import 'package:login_example/screens/feed.dart';
 import 'package:login_example/screens/quizzes.dart';
 import 'package:login_example/screens/rankings.dart';
-import 'package:wave/config.dart';
-import 'package:wave/wave.dart';
 
 import 'transition_route_observer.dart';
 
@@ -72,33 +68,18 @@ class _MainScreenState extends State<MainScreen>
 class TextTrackerAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
-    return Transform.rotate(
-      angle: -math.pi,
-      child: Stack(children: [
-        WaveWidget(
-          config: CustomConfig(
-            gradients: [
-              [Colors.red, Color(0xEEF44336)],
-              [Colors.red[800], Color(0x77E57373)],
-              [Colors.orange, Color(0x66FF9800)],
-              [Colors.yellow, Color(0x55FFEB3B)]
-            ],
-            heightPercentages: [0.20, 0.26, 0.28, 0.35],
-            durations: [10000000, 10000000, 10000000, 10000000],
-            blur: MaskFilter.blur(BlurStyle.solid, 20),
-            gradientBegin: Alignment.bottomLeft,
-            gradientEnd: Alignment.topRight,
-          ),
-          waveAmplitude: 0,
-          backgroundColor: Colors.transparent,
-          size: Size(double.infinity, 125),
-        ),
-      ]),
+    return AppBar(
+      title: Text(
+        'TextTracker',
+        style: TextStyle(color: Colors.black),
+      ),
+      backgroundColor: Color.fromRGBO(244, 241, 234, 1),
+      // #F4F1EA
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(200.0);
+  Size get preferredSize => Size.fromHeight(60.0);
 }
 
 class TextTrackerBottomNavigationBar extends StatelessWidget {
@@ -109,6 +90,10 @@ class TextTrackerBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FancyBottomNavigation(
+      barBackgroundColor: Color.fromRGBO(244, 241, 234, 1),
+      activeIconColor: Colors.black,
+      inactiveIconColor: Colors.black,
+      circleColor: Colors.white,
       tabs: [
         TabData(iconData: FontAwesomeIcons.comments, title: "Feed"),
         TabData(iconData: FontAwesomeIcons.medal, title: "Rankings"),

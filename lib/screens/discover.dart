@@ -6,14 +6,14 @@ import '../transition_route_observer.dart';
 import 'dart:math' as math;
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 
-class DashboardScreen extends StatefulWidget {
-  static const routeName = '/feed';
+class DiscoverScreen extends StatefulWidget {
+  static const routeName = '/discover';
 
   @override
-  _DashboardScreenState createState() => _DashboardScreenState();
+  _DiscoverScreenState createState() => _DiscoverScreenState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen>
+class _DiscoverScreenState extends State<DiscoverScreen>
     with SingleTickerProviderStateMixin, TransitionRouteAware {
   Future<bool> _goToLogin(BuildContext context) {
     return Navigator.of(context)

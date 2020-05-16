@@ -1,63 +1,79 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:getflutter/getflutter.dart';
+
+import '../models/feed.dart';
+import '../models/feed_post.dart';
 
 class FeedScreen extends StatelessWidget {
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        return _buildCard(context);
-      },
+    return Container(
+      margin: EdgeInsets.only(top: 10),
+      child: ListView.builder(
+        itemCount: Feed.posts.length,
+        itemBuilder: (context, index) {
+          return _buildCard(context, Feed.getPost(index));
+        },
+      ),
     );
   }
 
-  Widget _buildCard(BuildContext context) {
+  Widget _buildCard(BuildContext context, FeedPost post) {
     final theme = Theme.of(context);
 
     return GFCard(
+      margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
       content: Column(
         children: [
           Container(
             child: GFListTile(
               padding: EdgeInsets.all(0),
-              titleText: 'Dragon He',
-              subtitleText: '@abstractultra',
+              titleText: post.userName,
+              subtitleText: '@' + post.userHandle,
               avatar: GFAvatar(
-                backgroundImage: NetworkImage(
-                  'https://media-exp1.licdn.com/dms/image/C4D03AQEyzcJ9UyrGtA/profile-displayphoto-shrink_200_200/0?e=1594857600&v=beta&t=kZZPJ914NnMXhueWSv8mql-p-NBrFmhcJkVvOGhWkW0',
-                ),
+                backgroundImage: NetworkImage(post.userAvatarUrl),
               ),
             ),
           ),
           Row(
             children: [
               Image.network(
-                'https://cses.fi/book/gtcp.jpg',
+                post.bookImageUrl,
                 height: 150,
               ),
               Flexible(
                 child: Container(
                   padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                  child: Text(
-                    "Just finished chapter 4 of \"Competitive Programmer's Handbook\" by Antti Laaksonen! Learned a lot of new data structures that I'm definitely going to use soon :)",
-                  ),
+                  child: Text(post.text),
                 ),
               ),
             ],
           ),
           Container(
-            margin: EdgeInsets.fromLTRB(0, 10, 10, 0),
+            margin: EdgeInsets.only(right: 10, top: 10),
             child: Row(
               children: [
-                GFIconButton(
+                _buildButton(
+                  context,
+                  onPressed: () {},
+                  icon: Icon(Icons.bookmark, color: Colors.black),
+                ),
+                _buildButton(
+                  context,
+                  onPressed: () {},
                   icon: Icon(
-                    Icons.bookmark,
+                    FontAwesomeIcons.reply,
                     color: Colors.black,
                   ),
+                ),
+                _buildButton(
+                  context,
                   onPressed: () {},
-                  type: GFButtonType.outline,
-                  shape: GFIconButtonShape.circle,
-                  color: Colors.black,
+                  icon: Icon(
+                    FontAwesomeIcons.retweet,
+                    color: Colors.black,
+                  ),
                 ),
                 Spacer(),
                 Text(
@@ -71,6 +87,20 @@ class FeedScreen extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildButton(BuildContext context,
+      {void Function() onPressed, Icon icon}) {
+    return Container(
+      margin: EdgeInsets.only(right: 10),
+      child: GFIconButton(
+        icon: icon,
+        onPressed: onPressed,
+        type: GFButtonType.outline,
+        shape: GFIconButtonShape.circle,
+        color: Colors.black,
       ),
     );
   }

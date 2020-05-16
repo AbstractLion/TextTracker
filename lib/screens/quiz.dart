@@ -4,36 +4,23 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:getflutter/getflutter.dart';
 
-class QuizzesScreen extends StatelessWidget {
+class QuizScreen extends StatelessWidget {
+  final int bookId;
+  final int chapter;
+
+  QuizScreen({@required this.bookId, @required this.chapter});
+
   Widget build(BuildContext context) {
     return FloatingSearchBar.builder(
       pinned: true,
       padding: EdgeInsets.only(top: 10.0),
       itemCount: 100,
       itemBuilder: (BuildContext context, int index) {
-        return Container(
-          margin: EdgeInsets.only(top: 10),
-          child: _buildCard(context),
-        );
+        return _buildCard(context);
       },
       trailing: Badge(
-        badgeContent: Icon(
-          Icons.add,
-          color: Colors.white,
-          size: 12,
-        ),
-        padding: EdgeInsets.all(0),
-        badgeColor: Colors.black,
-        elevation: 0,
-        toAnimate: false,
-        position: BadgePosition.topRight(top: 7, right: 2),
-        child: IconButton(
-          icon: Icon(FontAwesomeIcons.clipboard),
-          padding: EdgeInsets.only(bottom: 5, left: 10),
-          iconSize: 30,
-          color: Colors.black,
-          onPressed: () {},
-        ),
+        badgeContent: Icon(Icons.add),
+        child: Icon(FontAwesomeIcons.clipboard),
       ),
       onChanged: (String value) {},
       onTap: () {},
@@ -47,7 +34,6 @@ class QuizzesScreen extends StatelessWidget {
     final theme = Theme.of(context);
 
     return GFAccordion(
-      margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
       titleChild: Row(
         children: [
           Image.network(

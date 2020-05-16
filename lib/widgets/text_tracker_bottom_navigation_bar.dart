@@ -17,7 +17,7 @@ class TextTrackerBottomNavigationBar extends StatelessWidget {
       tabs: [
         TabData(iconData: FontAwesomeIcons.comments, title: "Feed"),
         TabData(iconData: FontAwesomeIcons.medal, title: "Rankings"),
-        TabData(iconData: FontAwesomeIcons.clipboard, title: "Quizzes"),
+        TabData(iconData: FontAwesomeIcons.book, title: "Books"),
         TabData(iconData: FontAwesomeIcons.compass, title: "Discover"),
       ],
       onTabChangedListener: (position) {

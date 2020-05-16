@@ -1,11 +1,9 @@
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
-import 'package:login_example/screens/discover.dart';
-import 'package:login_example/screens/feed.dart';
-import 'package:login_example/screens/quizzes.dart';
-import 'package:login_example/screens/rankings.dart';
-import 'main_screen.dart';
+import 'package:flutter/services.dart';
+import 'package:login_example/screens/profile.dart';
+
 import 'login_screen.dart';
+import 'main_screen.dart';
 import 'transition_route_observer.dart';
 
 void main() {
@@ -48,7 +46,7 @@ class MyApp extends StatelessWidget {
           ),
           display4: TextStyle(fontFamily: 'Quicksand'),
           display3: TextStyle(fontFamily: 'Quicksand'),
-          display1: TextStyle(fontFamily: 'Quicksand'),
+          display1: TextStyle(fontFamily: 'OpenSans'),
           headline: TextStyle(fontFamily: 'NotoSans'),
           title: TextStyle(fontFamily: 'NotoSans'),
           subhead: TextStyle(fontFamily: 'NotoSans'),
@@ -63,6 +61,7 @@ class MyApp extends StatelessWidget {
       routes: {
         LoginScreen.routeName: (context) => LoginScreen(),
         MainScreen.routeName: (context) => MainScreen(),
+        ProfileScreen.routeName: (context) => ProfileScreen(),
       },
     );
   }

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:getflutter/getflutter.dart';
 
-class FeedScreen extends StatelessWidget {
+class ProfileScreen extends StatelessWidget {
+  static const String routeName = '/profile';
+
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (context, index) {

@@ -13,6 +13,7 @@ dependencies:
   getflutter: ^1.0.11
   cupertino_icons: ^0.1.2
   fancy_bottom_navigation: ^0.3.2
+  floating_search_bar: ^0.3.0
   font_awesome_flutter: ^8.5.0
   intl: ^0.16.1
   # dummy package to test https://github.com/NearHuscarl/flutter_login/issues/35
@@ -31,6 +32,13 @@ flutter:
   - assets/images/ecorp-lightgreen.png
 
   fonts:
+    - family: Bitter
+      fonts:
+        - asset: assets/fonts/Bitter-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Bitter-Regular.ttf
+        - asset: assets/fonts/Bitter-Bold.ttf
+          weight: 700
     - family: OpenSans
       fonts:
         - asset: assets/fonts/OpenSans-Light.ttf

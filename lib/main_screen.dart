@@ -1,12 +1,12 @@
-import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:login_example/screens/discover.dart';
 import 'package:login_example/screens/feed.dart';
 import 'package:login_example/screens/quizzes.dart';
 import 'package:login_example/screens/rankings.dart';
 
 import 'transition_route_observer.dart';
+import 'widgets/text_tracker_app_bar.dart';
+import 'widgets/text_tracker_bottom_navigation_bar.dart';
 
 class MainScreen extends StatefulWidget {
   static const routeName = '/Main';
@@ -38,16 +38,22 @@ class _MainScreenState extends State<MainScreen>
 
     return SafeArea(
       child: Scaffold(
-        appBar: TextTrackerAppBar(),
-        bottomNavigationBar:
-            TextTrackerBottomNavigationBar(setPage: (position) {
-          setState(() {
-            _currentPage = position;
-          });
-        }),
+        appBar: TextTrackerAppBar(
+          page: _currentPage,
+          setPage: _setPage,
+        ),
+        bottomNavigationBar: TextTrackerBottomNavigationBar(
+          setPage: _setPage,
+        ),
         body: _getPage(_currentPage),
       ),
     );
+  }
+
+  void _setPage(int position) {
+    setState(() {
+      _currentPage = position;
+    });
   }
 
   _getPage(int page) {
@@ -61,48 +67,5 @@ class _MainScreenState extends State<MainScreen>
       case 3:
         return DiscoverScreen();
     }
-  }
-}
-
-class TextTrackerAppBar extends StatelessWidget implements PreferredSizeWidget {
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      title: Center(
-        child: Text(
-          'TextTracker',
-          style: TextStyle(color: Colors.black),
-        ),
-      ),
-      backgroundColor: Colors.white,
-    );
-  }
-
-  @override
-  Size get preferredSize => Size.fromHeight(60.0);
-}
-
-class TextTrackerBottomNavigationBar extends StatelessWidget {
-  final void Function(int) setPage;
-
-  TextTrackerBottomNavigationBar({this.setPage});
-
-  @override
-  Widget build(BuildContext context) {
-    return FancyBottomNavigation(
-      barBackgroundColor: Colors.white,
-      activeIconColor: Colors.black,
-      inactiveIconColor: Colors.black,
-      circleColor: Colors.white,
-      tabs: [
-        TabData(iconData: FontAwesomeIcons.comments, title: "Feed"),
-        TabData(iconData: FontAwesomeIcons.medal, title: "Rankings"),
-        TabData(iconData: FontAwesomeIcons.clipboard, title: "Quizzes"),
-        TabData(iconData: FontAwesomeIcons.compass, title: "Discover"),
-      ],
-      onTabChangedListener: (position) {
-        setPage(position);
-      },
-    );
   }
 }

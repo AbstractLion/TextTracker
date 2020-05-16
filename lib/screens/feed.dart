@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 
 class FeedScreen extends StatelessWidget {
   Widget build(BuildContext context) {
-    return Text('feed');
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text("Hi"),
+        Text("Hello"),
+      ],
+    );
   }
 }

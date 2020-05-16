@@ -78,6 +78,8 @@ class TextTrackerAppBar extends StatelessWidget implements PreferredSizeWidget {
         return 'Quizzes';
       case 3:
         return 'Discover';
+      case 4:
+        return 'My Profile';
     }
     return 'TextTracker';
   }

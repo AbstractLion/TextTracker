@@ -110,9 +110,6 @@ class ProfileScreen extends StatelessWidget {
     return Container(
       height: 60.0,
       margin: EdgeInsets.only(top: 8.0),
-      decoration: BoxDecoration(
-        color: Color(0xFFEFF4F7),
-      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
@@ -176,7 +173,7 @@ class ProfileScreen extends StatelessWidget {
                 height: 40.0,
                 decoration: BoxDecoration(
                   border: Border.all(),
-                  color: Color(0xFF404A5C),
+                  color: Color.fromRGBO(0, 0, 0, 1),
                 ),
                 child: Center(
                   child: Text(
@@ -227,7 +224,7 @@ class ProfileScreen extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-                  TextTrackerAppBar(),
+                  TextTrackerAppBar(page: 4),
                   SizedBox(height: screenSize.height / 6.4),
                   _buildProfileImage(),
                   _buildFullName(),

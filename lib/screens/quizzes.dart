@@ -22,15 +22,15 @@ class QuizzesScreen extends StatelessWidget {
         badgeContent: Icon(
           Icons.add,
           color: Colors.white,
-          size: 12,
+          size: 15,
         ),
         padding: EdgeInsets.all(0),
         badgeColor: Colors.black,
         elevation: 0,
         toAnimate: false,
-        position: BadgePosition.topRight(top: 7, right: 2),
+        position: BadgePosition.topRight(top: 2, right: 2),
         child: IconButton(
-          icon: Icon(FontAwesomeIcons.clipboard),
+          icon: Icon(FontAwesomeIcons.book),
           padding: EdgeInsets.only(bottom: 5, left: 10),
           iconSize: 30,
           color: Colors.black,

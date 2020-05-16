@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getflutter/getflutter.dart';
+import 'package:flutter_statusbar_manager/flutter_statusbar_manager.dart';
 
 class TextTrackerAppBar extends StatelessWidget implements PreferredSizeWidget {
   final int page;
@@ -10,6 +11,9 @@ class TextTrackerAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
+    FlutterStatusbarManager.setColor(Colors.white);
+    FlutterStatusbarManager.setStyle(StatusBarStyle.DARK_CONTENT);
 
     return GFAppBar(
       backgroundColor: Colors.white,

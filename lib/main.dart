@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:login_example/screens/add_book.dart';
 import 'package:login_example/screens/profile.dart';
+import 'package:login_example/screens/take_quiz.dart';
 
 import 'login_screen.dart';
 import 'main_screen.dart';
@@ -59,6 +60,7 @@ class MyApp extends StatelessWidget {
         MainScreen.routeName: (context) => MainScreen(),
         ProfileScreen.routeName: (context) => ProfileScreen(),
         AddBookScreen.routeName: (context) => AddBookScreen(),
+        TakeQuiz.routeName: (context) => TakeQuiz(),
       },
     );
   }

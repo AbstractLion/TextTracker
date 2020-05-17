@@ -109,6 +109,39 @@ class QuizzesScreen extends StatelessWidget {
           ),
         ],
       ),
-    );
+      contentChild: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          GFButton(
+            color: Colors.grey,
+            onPressed: () => Navigator.of(context).pushNamed('/takequiz'),
+            text: "Chapter 1: Introduction",
+          ),
+          GFButton(
+            color: Colors.grey,
+            onPressed: () => print("hi"),
+            text: "Chapter 2: Time Complexity",
+          ),
+          GFButton(
+            color: Colors.grey,
+            onPressed: () => print("hi"),
+            text: "Chapter 3: Sorting",
+          ),
+          GFButton(
+            color: Colors.grey,
+            onPressed: () => print("hi"),
+            text: "Chapter 4: Data Structures",
+          ),
+          GFButton(
+            color: Colors.grey,
+            onPressed: () => print("hi"),
+            text: "Chapter 5: Complete Search",
+          ),
+          GFButton(
+            color: Colors.grey,
+            onPressed: () => print("hi"),
+            text: "Chapter 6: Greedy Programming",
+          ),
+        ]));
   }
 }

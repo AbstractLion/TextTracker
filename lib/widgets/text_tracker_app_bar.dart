@@ -17,7 +17,7 @@ class TextTrackerAppBar extends StatelessWidget implements PreferredSizeWidget {
 
     return GFAppBar(
       backgroundColor: Colors.white,
-      leading: page == 4
+      leading: page >= 4
           ? IconButton(
               icon: Icon(
                 Icons.arrow_back,

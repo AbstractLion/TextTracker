@@ -20,7 +20,8 @@ dependencies:
   # dummy package to test https://github.com/NearHuscarl/flutter_login/issues/35
   provider: ^4.0.1
   badges: ^1.1.1
-  flutter_statusbar_manager: ^1.0.2
+  flutter_statusbar_manager:
+    git: git@github.com:guitcastro/flutter_statusbar_manager.git
 
 dev_dependencies:
   flutter_test:

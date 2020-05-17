@@ -114,9 +114,11 @@ packages:
   flutter_statusbar_manager:
     dependency: "direct main"
     description:
-      name: flutter_statusbar_manager
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: "9b77cd82c12db323fa2c38dd9434ea36496a9b3b"
+      url: "git@github.com:guitcastro/flutter_statusbar_manager.git"
+    source: git
     version: "1.0.2"
   flutter_test:
     dependency: "direct dev"
